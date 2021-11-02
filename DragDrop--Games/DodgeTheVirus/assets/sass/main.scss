@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+%button {
+    padding: 20px 30px;
+    background: transparent;
+    border: 2px solid #457b9d;
+    cursor: pointer;
+}
+
+.game--view {
+    // background-image: url('../img/bg_view_space.png');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(4px);
+    background-color: #f72585;
+}
+
+body {
+    min-height: 100vh;
+    @include flex-column-center();
+    gap: 20px;
+    .startButton {
+        @extend %button;
+        font-size: 2rem;
+        transition: 0.4s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        &:hover {
+            background: #8ecae6;
+            color: #fff;
+        }
+    }
+    .replayButton {
+        @extend %button;
+        border: 2px solid #872ac5;
+        font-size: 2rem;
+        transition: 0.4s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #fff;
+        &:hover {
+            background: #f10a72;
+        }
+    }
+    .animation--box {
+        .animation--text {
+            width: 800px;
+            height: 200px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            cursor: pointer;
+        }
+    }
+    .player {
+        position: absolute;
+        bottom: 20px;
+        width: 100px;
+        height: 100px;
+        background-image: url('../img/cute_doggo.png');
+        background-repeat: no-repeat;
+        background-size: 80%;
+        background-position: center;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .enemy {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background-image: url('../img/enemy.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .leave--area {
+        width: 150px;
+        height: 100px;
+        border: 1px solid black;
+        position: absolute;
+        top: 5px;
+        @include flex-row-center()
+    }
+    .hide {
+        display: none !important;
+    }
+    .modal {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #f725849d;
+        backdrop-filter: blur(5px);
+        @include flex-column-center();
+        gap: 20px;
+    }
+    .modal--text {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
